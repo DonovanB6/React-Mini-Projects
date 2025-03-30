@@ -12,7 +12,7 @@ export function FriendsListItem({ friend, onUpdateBalance }) {
             <img src={friend.image} alt={friend.name} />
             <span>{friend.balance <= 0 ? `You owe ${friend.name} $${Math.abs(friend.balance)}` : `${friend.name} owes you ${friend.balance}`}</span>
             <button onClick={handleBillSplit}> {isBillSplit ? 'Close' : 'Select'}</button>
-            {isBillSplit && <SplitBill onUpdateBalance={onUpdateBalance} friend={friend} />}
+            {isBillSplit && <SplitBill key={friend.id} onUpdateBalance={onUpdateBalance} friend={friend} />}
         </div>
     );
 }
